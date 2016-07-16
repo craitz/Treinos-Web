@@ -65,4 +65,12 @@ public class MaterialController {
 		mv.addObject(material);
 		return mv;
 	}
+	
+	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
+	public String excluirMaterial(@PathVariable Long id, RedirectAttributes attributes)
+	{
+		cadastroMaterialService.excluir(id);
+		attributes.addFlashAttribute("mensagem", "Título excluído com sucesso!");
+		return "redirect:/natacao/material";
+	}
 }
