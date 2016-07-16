@@ -1,7 +1,5 @@
 package com.camilo.treinos.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -28,11 +26,10 @@ public class MaterialController {
 	CadastroMaterialService cadastroMaterialService;
 	
 	@RequestMapping("/novo")
-	public ModelAndView novoMaterial(HttpServletRequest req) {
+	public ModelAndView novoMaterial() {
 		
 		ModelAndView mv = new ModelAndView(CADASTRO_MATERIAL_VIEW);
 		mv.addObject("material", new Material());
-		mv.addObject("titulo", req.getParameter("titulo"));
 		return mv;
 	}
 		
