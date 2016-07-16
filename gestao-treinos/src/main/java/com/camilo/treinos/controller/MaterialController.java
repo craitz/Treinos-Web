@@ -1,6 +1,9 @@
 package com.camilo.treinos.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,7 +18,7 @@ import com.camilo.treinos.model.Material;
 import com.camilo.treinos.repository.filter.MaterialFilter;
 import com.camilo.treinos.service.CadastroMaterialService;
 
-@RestController
+@Controller
 @RequestMapping("/natacao/material")
 public class MaterialController {
 
@@ -25,9 +28,11 @@ public class MaterialController {
 	CadastroMaterialService cadastroMaterialService;
 	
 	@RequestMapping("/novo")
-	public ModelAndView novoMaterial() {
+	public ModelAndView novoMaterial(HttpServletRequest req) {
+		
 		ModelAndView mv = new ModelAndView(CADASTRO_MATERIAL_VIEW);
 		mv.addObject("material", new Material());
+		mv.addObject("titulo", req.getParameter("titulo"));
 		return mv;
 	}
 		
@@ -39,7 +44,7 @@ public class MaterialController {
 		try{
 			cadastroMaterialService.salvar(material);
 			attributes.addFlashAttribute("mensagem", "Material salvo com sucesso!");
-			return "redirect:/natacao/material/cadastro/" + material.getId();
+			return "redirect:/natacao/material/" + material.getId();
 		}
 		catch (IllegalArgumentException e)
 		{
