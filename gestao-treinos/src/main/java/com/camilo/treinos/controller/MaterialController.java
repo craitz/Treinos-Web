@@ -51,6 +51,7 @@ public class MaterialController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView pesquisarMaterial(@ModelAttribute("filtro") MaterialFilter filtro)
 	{
+		String s = CADASTRO_MATERIAL_VIEW;
 		ModelAndView mv = new ModelAndView("PesquisaMaterial");
 		mv.addObject("materiais", cadastroMaterialService.filtrar(filtro));
 		return mv;
