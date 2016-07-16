@@ -1,0 +1,48 @@
+/*Tela grande*/
+@media (min-width: 768px) {
+
+	.panel-default {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	
+	.alert {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	
+ }
+
+.pagination {
+	margin-left: 10px;
+	margin-top: 2px;
+}	
+
+.cr-btn-group {
+	margin-top: 2px;
+	margin-right: 10px;
+}
+
+.cr-navbar {
+	background-color: rgb(44, 44, 44);
+}	
+
+.cr-navbar-brand {
+	padding-top: 2px;
+	padding-left: 0px;
+}	
+
+.cr-link-panel {
+	float: right;
+	padding: 0px;	
+}
+
+.cr-titulo-panel {
+	float: left;
+	padding: 1px;	
+}
+
+.cr-thead{
+    background-color: rgb(120, 120, 120);
+    color: white;	
+}
