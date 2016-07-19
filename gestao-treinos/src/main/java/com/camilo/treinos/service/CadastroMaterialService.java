@@ -24,6 +24,10 @@ public class CadastroMaterialService {
 		}
 	}
 	
+	public void excluir(Long id) {
+		materiais.delete(id);
+	}
+	
 	public List<Material> filtrar(MaterialFilter filtro) {
 		String nome = filtro.getNome() == null ? "%" : filtro.getNome();
 		return  materiais.findByNomeContaining(nome);

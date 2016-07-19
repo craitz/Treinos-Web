@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout-padrao">
+	
+	<head>
+	<title>Pesquisa de material</title>
+	</head>	
+	
+	<!-- fragmento a ser decorado pelo layout -->
+	<section layout:fragment="conteudo">
+	
+		<!-- mensagem geral -->	
+		<div layout:include="mensagem-geral"></div>
+
+		<!-- painel principal -->
+		<div class="panel panel-default">
+			
+			<!-- cabeçalho do painel -->
+			<div class="panel-heading">
+				<div class="clearfix">
+					<h3 class="panel-title cr-titulo-panel">Pesquisa de materiais</h3>
+					<a class="btn btn-link cr-link-panel" th:href="@{/material/novo}">Novo material</a>
+				</div>
+			</div>	
+			
+			<!-- corpo do painel -->
+			<div class="panel-body">
+
+				<!-- form de pesquisa -->
+				<form method="GET" class="form-horizontal" th:action="@{/material}" th:object="${filtro}">
+					<div class="form-group">
+						<div class="col-sm-3">
+							<div class="input-group">
+								<input class="form-control" placeholder="Digite o nome..."
+									autofocus="autofocus" th:field="*{nome}"/>	
+								<span class="input-group-btn">
+									<button type="submit" class="btn btn-default">
+										<i class="glyphicon glyphicon-search"></i>
+									</button>
+								</span>
+							</div>
+						</div>			
+					</div>
+				</form>
+				
+				<!-- compatibilidade com dispositivos móveis> -->
+				<div class="table-responsive">
+			  	
+			  		<!-- tabela -->
+			  		<table class="table table-bordered table-striped">
+			  		
+			  			<!-- cabeçalho da tabela -->
+			  			<thead class="cr-thead">
+			  				<tr>
+			  					<th class="text-center col-sm-1">#</th>
+			  					<th>Nome</th>
+			  					<th class="text-center col-sm-2">Data de aquisição</th>
+			  					<th class="text-center col-sm-1">Operações</th>
+			  				</tr>
+			  			</thead>
+			  			
+			  			<!-- corpo da tabela (itens) -->
+			  			<tbody>
+			  				<tr th:each="material : ${materiais}">
+								<td class="text-center" th:text="${material.id}"></td>
+			  					<td th:text="${material.nome}"></td>
+			  					<td class="text-center" th:text="${{material.dataAquisicao}}"></td>
+
+			  					<td class="text-center">
+			  						<a class="btn btn-link btn-xs" th:href="@{/material/{id}(id=${material.id})}"
+			  							title="Editar" rel="tooltip" data-placement="top">
+			  							<span class="glyphicon glyphicon-pencil"></span>
+			  						</a>
+			  						<a class="btn btn-link btn-xs" data-toggle="modal" data-target="#confirmacaoModal"
+			  								th:attr="data-id=${material.id}, data-nome=${material.nome}"
+			  								title="Excluir" rel="tooltip" data-placement="top">
+			  							<span class="glyphicon glyphicon-remove"></span>
+			  						</a>
+			  					</td>
+			  				</tr>
+			  			</tbody>
+					</table>
+					
+				</div> <!-- table-responsive -->
+			</div> <!-- panel-body -->
+			
+			<div layout:include="dialogo-confirmacao-exclusao"></div>
+			
+		</div> <!-- panel-default -->
+	</section> <!-- conteudo -->
+</html>

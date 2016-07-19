@@ -46,3 +46,28 @@
     background-color: rgb(120, 120, 120);
     color: white;	
 }
+
+/* tr:hover td { */
+/* 	background: rgb(255, 245, 225); */
+/* } */
+
+.btn-login {
+	margin-right: 10px;
+	
+}
+
+.href-cadastro {
+	padding-top: 15px;
+	margin-right: 10px;
+	color: rgb(200, 200, 200);
+}
+
+.btn-entrar {
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+.msg-cadastro-finalizado {
+	margin-top: 20px;
+	margin-left: 20px;
+}
