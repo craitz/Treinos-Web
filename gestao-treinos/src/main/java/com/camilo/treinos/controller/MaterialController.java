@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -17,10 +16,10 @@ import com.camilo.treinos.repository.filter.MaterialFilter;
 import com.camilo.treinos.service.CadastroMaterialService;
 
 @Controller
-@RequestMapping("/natacao/material")
+@RequestMapping("/material")
 public class MaterialController {
 
-	private static final String CADASTRO_MATERIAL_VIEW = "CadastroMaterial";
+	private static final String CADASTRO_MATERIAL_VIEW = "cadastro-material";
 
 	@Autowired
 	CadastroMaterialService cadastroMaterialService;
@@ -36,12 +35,12 @@ public class MaterialController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String salvarMaterial(@Validated Material material, Errors errors, RedirectAttributes attributes) {
 		if (errors.hasErrors())
-			return CADASTRO_MATERIAL_VIEW;		
+			return CADASTRO_MATERIAL_VIEW;
 		
 		try{
 			cadastroMaterialService.salvar(material);
 			attributes.addFlashAttribute("mensagem", "Material salvo com sucesso!");
-			return "redirect:/natacao/material/" + material.getId();
+			return "redirect:/material/" + material.getId();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -53,7 +52,7 @@ public class MaterialController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView pesquisarMaterial(@ModelAttribute("filtro") MaterialFilter filtro)
 	{
-		ModelAndView mv = new ModelAndView("PesquisaMaterial");
+		ModelAndView mv = new ModelAndView("pesquisa-material");
 		mv.addObject("materiais", cadastroMaterialService.filtrar(filtro));
 		return mv;
 	}
@@ -64,5 +63,13 @@ public class MaterialController {
 		ModelAndView mv = new ModelAndView(CADASTRO_MATERIAL_VIEW);
 		mv.addObject(material);
 		return mv;
+	}
+	
+	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
+	public String excluirMaterial(@PathVariable Long id, RedirectAttributes attributes)
+	{
+		cadastroMaterialService.excluir(id);
+		attributes.addFlashAttribute("mensagem", "Título excluído com sucesso!");
+		return "redirect:/material";
 	}
 }

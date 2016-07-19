@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+	
+	<head>
+		<meta charset="UTF-8"/>
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width"/>
+		
+		<title>Home de ???</title>
+		
+		<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-datepicker.standalone.min.css}"/>
+	</head>	
+	<body>
+		
+		<nav class="navbar cr-navbar navbar-inverse navbar-static-top">
+			<div class="container-fluid">
+				 <div class="navbar-header cr-navbar-header">
+				 	<a class="navbar-brand cr-navbar-brand" href="#">
+						<img alt="Natacao" th:src="@{/images/logo.png}"/>
+					</a>
+				</div>
+			</div>
+		</nav>
+		
+		<ul class="nav nav-tabs">
+			<li class="nav-item">
+				<a class="nav-link active" href="#">Active</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Link</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Another link</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link disabled" href="/">Disabled</a>
+			</li>
+		</ul>
+		
+		<script th:src="@{/js/jquery-2.1.4.min.js}"></script>
+		<script th:src="@{/js/bootstrap.min.js}"></script>
+		<script th:src="@{/js/bootstrap-datepicker.min.js}"></script>
+		<script th:src="@{/js/bootstrap-datepicker.pt-BR.min.js}"></script>
+		<script th:src="@{/js/treinos.js}"></script>		
+	</body>	
+</html>
