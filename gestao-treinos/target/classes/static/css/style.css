@@ -47,13 +47,15 @@
     color: white;	
 }
 
-/* tr:hover td { */
-/* 	background: rgb(255, 245, 225); */
-/* } */
-
+/*layout-links*/
 .btn-login {
 	margin-right: 10px;
-	
+}
+
+/*layout-links*/
+.btn-logout {
+	margin-right: 10px;
+	margin-top: 9px;
 }
 
 .href-cadastro {

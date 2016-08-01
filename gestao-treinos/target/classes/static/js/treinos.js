@@ -1,5 +1,6 @@
 $(function() {
 	$('[rel = "tooltip"]').tooltip();
+//	-- a implementar --
 	
 //	$('.btn-cadastrar-usuario').on('click', function(event) {
 //		event.preventDefault();

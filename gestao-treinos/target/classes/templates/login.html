@@ -1,33 +1,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" 
 	xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout-links">
 	
-<head>
-	<meta charset="UTF-8"/>
-	<meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
-	<meta name="viewport" content="width=device-width"/>
-	
-	<title>Página inicial</title>
-	
-	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-datepicker.standalone.min.css}"/>
-</head>
-	<body>
-		
-		<nav class="navbar cr-navbar navbar-inverse navbar-static-top">
-			<div class="container-fluid">
-			
-				<div class="navbar-header cr-navbar-header">
-				 	<a class="navbar-brand cr-navbar-brand" href="#">
-						<img alt="Natacao" th:src="@{/images/logo.png}"/>
-					</a>
-				</div>
-			</div>
-		</nav>
-		
-		<form method="GET" class="form-horizontal" action="#" th:action="@{/logar}" th:object="${filtro}">
+	<head>
+		<title>Página de login</title>
+	</head>	
+
+	<section layout:fragment="conteudo">
+				
+		<form method="GET" class="form-horizontal" action="#" th:action="@{${EXECUTA_LOGIN_LINK}}" th:object="${filtro}">
 
 			<div class="alert alert-danger" th:if="${!#strings.isEmpty(mensagem)}">
 				<span th:text="${mensagem}"></span>
@@ -37,7 +20,7 @@
 				<div class="panel-heading">
 					<div class="clearfix">
 						<h3 class="panel-title cr-titulo-panel">Login no Sistema</h3>
-						<a class="btn btn-link cr-link-panel" th:href="@{/}">Voltar para página inicial</a>
+						<a class="btn btn-link cr-link-panel" th:href="@{${HOME_LINK}}">Voltar para página inicial</a>
 					</div>
 				</div>
 
@@ -62,12 +45,5 @@
 				</div>
 			</div>
 		</form>
-		
-		<script th:src="@{/js/jquery-2.1.4.min.js}"></script>
-		<script th:src="@{/js/bootstrap.min.js}"></script>
-		<script th:src="@{/js/bootstrap-datepicker.min.js}"></script>
-		<script th:src="@{/js/bootstrap-datepicker.pt-BR.min.js}"></script>
-		<script th:src="@{/js/treinos.js}"></script>
-
-	</body>
+	</section>
 </html>

@@ -1,7 +1,5 @@
 package com.camilo.treinos.repository;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.camilo.treinos.model.Usuario;

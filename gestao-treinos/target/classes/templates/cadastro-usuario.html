@@ -1,33 +1,15 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" 
 	xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout-links">
 	
-<head>
-	<meta charset="UTF-8"/>
-	<meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
-	<meta name="viewport" content="width=device-width"/>
-	
-	<title>Cadastro</title>
-	
-	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-datepicker.standalone.min.css}"/>
-</head>
-	<body>
-		
-		<nav class="navbar cr-navbar navbar-inverse navbar-static-top">
-			<div class="container-fluid">
-			
-				<div class="navbar-header cr-navbar-header">
-				 	<a class="navbar-brand cr-navbar-brand" href="#">
-						<img alt="Natacao" th:src="@{/images/logo.png}"/>
-					</a>
-				</div>
-			</div>
-		</nav>
-			
-		<form class="form-horizontal" method="POST" th:action="@{/cadastrar}" th:object="${usuario}">
+	<head>
+		<title>Novo usuário</title>
+	</head>	
+
+	<section layout:fragment="conteudo">
+		<form class="form-horizontal" method="POST" th:action="@{${EXECUTA_CADASTRO_LINK}}" th:object="${usuario}">
 		
   			<div layout:include="mensagem-erro"></div>
   			<div layout:include="mensagem-geral"></div>
@@ -36,7 +18,7 @@
 				<div class="panel-heading">
 					<div class="clearfix">
 						<h2 class="panel-title cr-titulo-panel">Cadastro de usuário</h2>
-						<a class="btn btn-link cr-link-panel" th:href="@{/}">Voltar parar página inicial</a>
+						<a class="btn btn-link cr-link-panel" th:href="@{${HOME_LINK}}">Voltar parar página inicial</a>
 					</div>
 				</div>
 				
@@ -88,34 +70,25 @@
 					<!-- Mensagem de confirmação -->
 					<!-- Só aparece quando houve sucesso no cadastro do usuário-->
 					<div class="form-group" th:if="${status == 'OK'}">
-						<form>
-							<div>
-								<span class="msg-cadastro-finalizado">
-									Processo de cadastro do usuário
-									<i>
-										<strong>
-											<span style="color:green; font-size:130%" th:text=" ${usuarioLogado} "></span>
-										</strong>
-									</i>
-									finalizado com sucesso!
-								</span>
-							</div>
-							<div>
-						  		<a th:href="@{/home}" class="btn btn-primary btn-entrar">Entrar no Sistema</a>
-							</div>
-						</form>
+						<div>
+							<span class="msg-cadastro-finalizado">
+								Processo de cadastro do usuário
+								<i>
+									<strong>
+										<span style="color:green; font-size:130%" th:text=" ${usuarioLogado} "></span>
+									</strong>
+								</i>
+								finalizado com sucesso!
+							</span>
+						</div>
+						<div>
+					  		<a th:href="@{${HOME_USER_LINK}}" class="btn btn-primary btn-entrar">Entrar no Sistema</a>
+						</div>
 					</div>
 					<!-- Final da mensagem -->
 
 				</div>
 			</div>
 		</form>			
-
-		<script th:src="@{/js/jquery-2.1.4.min.js}"></script>
-		<script th:src="@{/js/bootstrap.min.js}"></script>
-		<script th:src="@{/js/bootstrap-datepicker.min.js}"></script>
-		<script th:src="@{/js/bootstrap-datepicker.pt-BR.min.js}"></script>
-		<script th:src="@{/js/treinos.js}"></script>
-
-	</body>
+	</section>
 </html>

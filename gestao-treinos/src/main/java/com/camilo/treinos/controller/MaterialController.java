@@ -17,7 +17,7 @@ import com.camilo.treinos.service.CadastroMaterialService;
 
 @Controller
 @RequestMapping("/material")
-public class MaterialController {
+public class MaterialController extends BaseController {
 
 	private static final String CADASTRO_MATERIAL_VIEW = "cadastro-material";
 

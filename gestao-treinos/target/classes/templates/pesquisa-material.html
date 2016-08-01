@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="layout-padrao">
+	layout:decorator="layout-links">
 	
 	<head>
 	<title>Pesquisa de material</title>
@@ -21,7 +21,7 @@
 			<div class="panel-heading">
 				<div class="clearfix">
 					<h3 class="panel-title cr-titulo-panel">Pesquisa de materiais</h3>
-					<a class="btn btn-link cr-link-panel" th:href="@{/material/novo}">Novo material</a>
+					<a class="btn btn-link cr-link-panel" th:href="@{${CADASTRO_MATERIAL_FORM_LINK}}">Novo material</a>
 				</div>
 			</div>	
 			
@@ -29,7 +29,7 @@
 			<div class="panel-body">
 
 				<!-- form de pesquisa -->
-				<form method="GET" class="form-horizontal" th:action="@{/material}" th:object="${filtro}">
+				<form method="GET" class="form-horizontal" th:action="@{${EXECUTA_PESQUISA_MATERIAL_LINK}}" th:object="${filtro}">
 					<div class="form-group">
 						<div class="col-sm-3">
 							<div class="input-group">
@@ -69,7 +69,7 @@
 			  					<td class="text-center" th:text="${{material.dataAquisicao}}"></td>
 
 			  					<td class="text-center">
-			  						<a class="btn btn-link btn-xs" th:href="@{/material/{id}(id=${material.id})}"
+			  						<a class="btn btn-link btn-xs" th:href="@{{path}/{id}(id=${material.id}, path=${PESQUISA_MATERIAL_LINK})}"
 			  							title="Editar" rel="tooltip" data-placement="top">
 			  							<span class="glyphicon glyphicon-pencil"></span>
 			  						</a>
