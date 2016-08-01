@@ -3,4 +3,4 @@
  
 *Aplicação Web Java* com *Spring Framework*, *Thymeleaf*, *JPA + Hibernate*, *Bootstrap* e *MySql*, rodando num servidor *Apache Tomcat 8*.
 Desenvolvido no ambiente *Spring Tool Suite*.
-> _**Ainda em desenvolvimento!**_
+_**Em desenvolvimento!**_
