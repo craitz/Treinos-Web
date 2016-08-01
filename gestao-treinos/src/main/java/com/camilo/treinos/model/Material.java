@@ -1,7 +1,6 @@
 package com.camilo.treinos.model;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,6 +29,7 @@ public class Material {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dataAquisicao;
 
+//	-- a implementar --
 //	private List<Marca> marcas;
 	
 	public long getId() {
@@ -56,6 +56,7 @@ public class Material {
 		this.dataAquisicao = dataAquisicao;
 	}
 
+//	-- a implementar --
 //	@ManyToMany(mappedBy = "materiais")
 //	public List<Marca> getMarcas() {
 //		return marcas;

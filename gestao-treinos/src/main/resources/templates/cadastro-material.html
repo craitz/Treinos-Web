@@ -2,14 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="layout-padrao">
+	layout:decorator="layout-links">
 	
 	<head>
 		<title>Cadastro de material</title>
 	</head>	
 	
 	<section layout:fragment="conteudo">
-		<form class="form-horizontal" method="POST" th:action="@{/material}" th:object="${material}">
+
+		<form class="form-horizontal" method="POST" th:action="@{${PESQUISA_MATERIAL_LINK}}" th:object="${material}">
 		
 			<div layout:include="mensagem-geral"></div>
 			<div layout:include="mensagem-erro"></div>
@@ -18,7 +19,7 @@
 				<div class="panel-heading">
 					<div class="clearfix">
 						<h3 class="panel-title cr-titulo-panel">Novo material</h3>
-						<a class="btn btn-link cr-link-panel" th:href="@{/material}">Voltar para pesquisa</a>
+						<a class="btn btn-link cr-link-panel" th:href="@{${PESQUISA_MATERIAL_LINK}}">Voltar para pesquisa</a>
 					</div>
 				</div>
 

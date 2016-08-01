@@ -1,11 +1,9 @@
 package com.camilo.treinos.model;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
@@ -45,7 +43,8 @@ public class Usuario {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dataNascimento;
-	
+
+//	-- a implementar --
 //	private List<Marca> marcas;
 	
 	public String getEmail() {
@@ -88,6 +87,7 @@ public class Usuario {
 		this.dataNascimento = dataNascimento;
 	}
 
+//	-- a implementar --
 //	@OneToMany(mappedBy = "usuario")
 //	public List<Marca> getMarcas() {
 //		return marcas;

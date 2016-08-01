@@ -4,6 +4,8 @@ import com.camilo.treinos.model.Usuario;
 import com.camilo.treinos.repository.filter.UsuarioFilter;
 import com.camilo.treinos.service.CadastroUsuarioService;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -16,7 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/")
-public class UsuarioController {
+public class UsuarioController extends BaseController {
 
 	
 	private static final String CADASTRO_USUARIO_VIEW = "cadastro-usuario";
@@ -30,8 +32,18 @@ public class UsuarioController {
 		return mv;
 	}
 
+	@RequestMapping("logout")
+	public ModelAndView logout(HttpSession sessao) {		
+		sessao.setAttribute("modo", "logout");
+		//sessao.invalidate();
+		
+		System.out.println("Sessão invalidada!");
+		
+		return new ModelAndView("index");
+	}
+
 	@RequestMapping(value = "logar", method = RequestMethod.GET)
-	public ModelAndView login(UsuarioFilter filtro, RedirectAttributes attr) {
+	public ModelAndView login(UsuarioFilter filtro, RedirectAttributes attr, HttpSession sessao) {
 		
 		//MV com destino de sucesso
 		ModelAndView mv = new ModelAndView("home-usuario");
@@ -50,6 +62,9 @@ public class UsuarioController {
 			return mv;
 		}
 		
+		sessao.setAttribute("modo", "login");
+		sessao.setAttribute("logado", usuario);
+		
 		//sucesso
 		return mv;
 	}
@@ -61,9 +76,10 @@ public class UsuarioController {
 
 	@RequestMapping
 	public String index() {
-		return "index";
+		//quando implementado, vai para index.html
+		return "redirect:/material";
 	}
-	
+				
 	@RequestMapping("cadastro")
 	public ModelAndView cadastro() {
 		ModelAndView mv = new ModelAndView(CADASTRO_USUARIO_VIEW);
