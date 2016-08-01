@@ -1,0 +1,75 @@
+/*Tela grande*/
+@media (min-width: 768px) {
+
+	.panel-default {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	
+	.alert {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	
+ }
+
+.pagination {
+	margin-left: 10px;
+	margin-top: 2px;
+}	
+
+.cr-btn-group {
+	margin-top: 2px;
+	margin-right: 10px;
+}
+
+.cr-navbar {
+	background-color: rgb(44, 44, 44);
+}	
+
+.cr-navbar-brand {
+	padding-top: 2px;
+	padding-left: 0px;
+}	
+
+.cr-link-panel {
+	float: right;
+	padding: 0px;	
+}
+
+.cr-titulo-panel {
+	float: left;
+	padding: 1px;	
+}
+
+.cr-thead{
+    background-color: rgb(120, 120, 120);
+    color: white;	
+}
+
+/*layout-links*/
+.btn-login {
+	margin-right: 10px;
+}
+
+/*layout-links*/
+.btn-logout {
+	margin-right: 10px;
+	margin-top: 9px;
+}
+
+.href-cadastro {
+	padding-top: 15px;
+	margin-right: 10px;
+	color: rgb(200, 200, 200);
+}
+
+.btn-entrar {
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+.msg-cadastro-finalizado {
+	margin-top: 20px;
+	margin-left: 20px;
+}
