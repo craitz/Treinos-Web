@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout-links">
+	
+	<head>
+		<title>Página de login</title>
+	</head>	
+
+	<section layout:fragment="conteudo">
+				
+		<form method="GET" class="form-horizontal" action="#" th:action="@{${EXECUTA_LOGIN_LINK}}" th:object="${filtro}">
+
+			<div class="alert alert-danger" th:if="${!#strings.isEmpty(mensagem)}">
+				<span th:text="${mensagem}"></span>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="clearfix">
+						<h3 class="panel-title cr-titulo-panel">Login no Sistema</h3>
+						<a class="btn btn-link cr-link-panel" th:href="@{${HOME_LINK}}">Voltar para página inicial</a>
+					</div>
+				</div>
+
+				<div class="panel-body cr-body">
+					<div class="form-group">
+						<label for="email" class="control-label col-sm-2" >E-mail</label>
+						<div class="col-sm-2">
+							<input class="form-control" type="text" th:field="*{email}"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="pwd" class="control-label col-sm-2" >Senha</label>
+						<div class="col-sm-2">
+							<input class="form-control" type="text" th:field="*{pwd}"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-2 pull-left">
+				  			<button type="submit" class="btn btn-primary">Entrar</button>
+				  		</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</section>
+</html>
